@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stat Item", menuName = "Tow/ScriptObjs/StatItem")]
+[CreateAssetMenu(fileName = "Stat Item", menuName = "Tow/ScriptObjs/Stat Item")]
 public class StatItemData : ItemData
 {
+    public float stackEfficacy;
     public Stats statChange;
-
+    
     public override void PickedUp()
     {
-        PlayerStats.god.AddToInventory(this);
+        PickedUpGeneric();
     }
     public override void ApplyChanges()
     {
-        PlayerStats.god.ChangeStats(statChange, Stats.ChangeType.Add);
+        GeneralAssist.ps.ChangeStats(statChange, Stats.ChangeType.Add);
     }
     
 }
